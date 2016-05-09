@@ -1,6 +1,7 @@
 package com.scwang.restful;
 
 import com.scwang.restful.api.HttpMethod;
+import com.scwang.restful.api.Response;
 import com.scwang.restful.config.Config;
 import com.scwang.restful.http.MultiRequestHandler;
 import org.junit.Test;
@@ -26,9 +27,9 @@ public class UploadTester {
         this.socketTimeout = 20000;
         this.connectionTimeout = 20000;
         this.ip = "192.168.1.207";
-        this.port = "8080";
+        this.port = "8090";
         this.charset = "utf-8";
-        this.version = "api/v1";
+        this.version = "api/android.ashx";
         this.requestMediaType = AcceptedMediaType.form;
         this.responseMediaType = AcceptedMediaType.json;
     }};
@@ -37,7 +38,8 @@ public class UploadTester {
 
     @Test
     public void upload() throws Exception {
-        handler.doRequest(HttpMethod.POST, "");
+        Response response = handler.doRequest(HttpMethod.GET, "?$c=Upload&$m=UploadFile");
+        System.out.println(response.getBody());
     }
 
 }

@@ -94,6 +94,7 @@ public class MultiRequestHandler extends RequestHandler {
             outStream.close();
         }
 
+        http.connect();
         InputStream is = http.getInputStream();
         InputStreamReader isr = new InputStreamReader(is, config.charset);
         BufferedReader br = new BufferedReader(isr);
@@ -164,24 +165,32 @@ public class MultiRequestHandler extends RequestHandler {
         if (statusCode != config.successcode) {
             throw new HttpException("HTTP " + statusCode, statusCode, response.getBody());
         }
-
-        JSONObject object = new JSONObject(response.getBody());
-        if (config.status_ok.equals("" + object.get(config.status))) {
-            if (object.has(config.result)) {
-                response.setBody(object.get(config.result).toString());
+        if (!config.jsonframework || config.status==null || config.status_ok==null || config.result == null || config.message == null) {
+            return response;
+        }
+        try {
+            JSONObject object = new JSONObject(response.getBody());
+            if (config.status_ok.equals("" + object.get(config.status))) {
+                if (object.has(config.result)) {
+                    response.setBody(object.get(config.result).toString());
+                } else {
+                    response.setBody("");
+                }
             } else {
-                response.setBody("");
+                String errormessage = object.get(config.message).toString();
+                try {
+                    ErrorMessage message = JacksonUtil.toObject(errormessage, config.ErrorMessageClass);
+                    throw new ServerCodeException(message);
+                } catch (ServerCodeException e) {
+                    throw e;
+                } catch (Throwable e) {
+                    throw new ServerException(errormessage);
+                }
             }
-        } else {
-            String errormessage = object.get(config.message).toString();
-            try {
-                ErrorMessage message = JacksonUtil.toObject(errormessage, config.ErrorMessageClass);
-                throw new ServerCodeException(message);
-            } catch (ServerCodeException e) {
-                throw e;
-            } catch (Throwable e) {
-                throw new ServerException(errormessage);
-            }
+        } catch (ServerException e) {
+            throw e;
+        } catch (Throwable e) {
+            throw new ServerException(response.getBody());
         }
         return response;
     }
