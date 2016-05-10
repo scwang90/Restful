@@ -1,9 +1,10 @@
-package com.scwang.restful.exception;
+package com.restful.client.exception;
 
 
-import com.scwang.restful.api.ErrorMessage;
+import com.restful.client.api.ErrorMessage;
+import com.restful.exception.RestfulException;
 
-public class ServerException extends RestfulException{
+public class ServerException extends RestfulException {
 
 	private static final long serialVersionUID = 3153750355951678657L;
 

@@ -1,4 +1,6 @@
-package com.scwang.restful.exception;
+package com.restful.exception;
+
+import com.restful.exception.RestfulException;
 
 /**
  * Exception condition when executing HTTP requests to API

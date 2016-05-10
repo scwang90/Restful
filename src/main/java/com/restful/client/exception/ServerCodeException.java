@@ -1,6 +1,6 @@
-package com.scwang.restful.exception;
+package com.restful.client.exception;
 
-import com.scwang.restful.api.ErrorMessage;
+import com.restful.client.api.ErrorMessage;
 
 public class ServerCodeException extends ServerException{
 

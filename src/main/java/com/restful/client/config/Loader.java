@@ -1,4 +1,4 @@
-package com.scwang.restful.config;
+package com.restful.client.config;
 
 import java.io.InputStream;
 import java.util.Properties;

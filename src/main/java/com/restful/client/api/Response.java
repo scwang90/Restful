@@ -1,14 +1,14 @@
 // Copyright (c) 2003-2013, LogMeIn, Inc. All rights reserved.
 // This is part of Xively4J library, it is under the BSD 3-Clause license.
-package com.scwang.restful.api;
+package com.restful.client.api;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.scwang.restful.exception.ServerException;
-import com.scwang.restful.util.JacksonUtil;
+import com.restful.client.exception.ServerException;
+import com.restful.util.JacksonUtil;
 import org.json.JSONObject;
 
 /**

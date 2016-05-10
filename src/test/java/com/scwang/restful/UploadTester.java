@@ -1,11 +1,10 @@
 package com.scwang.restful;
 
-import com.scwang.restful.api.HttpMethod;
-import com.scwang.restful.api.RequestHandler;
-import com.scwang.restful.api.Response;
-import com.scwang.restful.config.Config;
-import com.scwang.restful.http.MultiRequestHandler;
-import com.scwang.restful.util.JacksonUtil;
+import com.restful.client.api.RequestHandler;
+import com.restful.client.api.Response;
+import com.restful.client.config.Config;
+import com.restful.client.MultiRequestHandler;
+import com.restful.util.JacksonUtil;
 import org.junit.Test;
 
 import java.io.File;

@@ -1,6 +1,6 @@
-package com.scwang.restful.config;
+package com.restful.client.config;
 
-import com.scwang.restful.api.ErrorMessage;
+import com.restful.client.api.ErrorMessage;
 
 /**
  * 配置实体类

@@ -1,4 +1,4 @@
-package com.scwang.restful.api;
+package com.restful.client.api;
 
 /**
  * 错误信息类

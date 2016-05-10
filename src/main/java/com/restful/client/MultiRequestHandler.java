@@ -1,17 +1,17 @@
-package com.scwang.restful.http;
+package com.restful.client;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.scwang.restful.api.ErrorMessage;
-import com.scwang.restful.api.HttpMethod;
-import com.scwang.restful.api.RequestHandler;
-import com.scwang.restful.api.Response;
-import com.scwang.restful.exception.HttpException;
-import com.scwang.restful.config.Config;
-import com.scwang.restful.config.Loader;
-import com.scwang.restful.exception.ServerCodeException;
-import com.scwang.restful.exception.ServerException;
-import com.scwang.restful.util.JacksonUtil;
+import com.restful.client.api.ErrorMessage;
+import com.restful.client.api.HttpMethod;
+import com.restful.client.api.RequestHandler;
+import com.restful.client.api.Response;
+import com.restful.exception.HttpException;
+import com.restful.client.config.Config;
+import com.restful.client.config.Loader;
+import com.restful.client.exception.ServerCodeException;
+import com.restful.client.exception.ServerException;
+import com.restful.util.JacksonUtil;
 import org.json.JSONObject;
 
 import java.io.*;
