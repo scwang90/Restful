@@ -1,7 +1,7 @@
 package com.restful.exception;
 
 
-import com.restful.client.api.ErrorMessage;
+import com.restful.api.ErrorMessage;
 
 public class RestfulException extends RuntimeException{
 

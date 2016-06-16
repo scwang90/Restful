@@ -1,7 +1,5 @@
 package com.restful.exception;
 
-import com.restful.exception.RestfulException;
-
 /**
  * Exception condition when executing HTTP requests to API
  * @author s0pau

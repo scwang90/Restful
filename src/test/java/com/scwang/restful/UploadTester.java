@@ -1,10 +1,10 @@
 package com.scwang.restful;
 
-import com.restful.client.api.RequestHandler;
-import com.restful.client.api.Response;
-import com.restful.client.config.Config;
-import com.restful.client.MultiRequestHandler;
-import com.restful.util.JacksonUtil;
+import com.restful.api.HttpMethod;
+import com.restful.api.RequestHandler;
+import com.restful.api.Response;
+import com.restful.config.Config;
+import com.restful.http.MultiRequestHandler;
 import org.junit.Test;
 
 import java.io.File;
@@ -21,14 +21,17 @@ public class UploadTester {
      */
     protected static Config config = new Config() {{
         this.jsonframework = true;
-        this.message = "ErrorMsg";
-        this.status = "ResultCode";
-        this.status_ok = "0";
-        this.result = "Data";
+
         this.message = "msg";
         this.status = "success";
         this.status_ok = "true";
         this.result = "data";
+
+        this.message = "ErrorMsg";
+        this.status = "ResultCode";
+        this.status_ok = "0";
+        this.result = "Data";
+
         this.socketTimeout = 200000;
         this.connectionTimeout = 200000;
         this.ip = "192.168.1.207";
@@ -51,8 +54,8 @@ public class UploadTester {
         //http://192.168.1.207:8090/api/android.ashx?$c=User&$m=Login$OPEN
         Response response = null;
         handler.enableCookie(true);
-        //response = handler.doRequest(HttpMethod.POST, "?$c=User&$m=Login$OPEN","username=admin&password=000000");
-        //System.out.println(response.getBody());
+        response = handler.doRequest(HttpMethod.POST, "?$c=Common&$m=UserLogin$OPEN","username=18200000000&password=000000");
+        System.out.println(response.getBody());
         Map<String, Object> param = new LinkedHashMap<>();
         param.put("TaskNo", "20160411");
         param.put("TestNo", "1");
@@ -64,7 +67,7 @@ public class UploadTester {
         params.put("Param", param);
         Map<String, String> headers = new LinkedHashMap<>();
         headers.put("params", JacksonUtil.toJson(params));
-        headers.put("Token", "sis003.B0BA83D9E7");
+        headers.put("Token", "YX00000087.4FFCFCE85D");
         response = handler.doUpload("?$c=Upload&$m=UploadFile", headers, null, "target/1.PRT");
         System.out.println(response.getBody());
     }
